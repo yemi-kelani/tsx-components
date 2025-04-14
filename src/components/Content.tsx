@@ -1,4 +1,4 @@
-import { HTMLAttributes, JSX, ReactNode } from "react";
+import { JSX, ReactNode } from "react";
 import { DynamicTag } from "./DynamicTag";
 
 type ContentProps = {
@@ -6,7 +6,7 @@ type ContentProps = {
   as?: keyof JSX.IntrinsicElements;
   gap?: string;
   direction?: "column" | "row";
-  attributes?: HTMLAttributes<HTMLDivElement>;
+  [key: string]: unknown;
 };
 
 /**
@@ -16,9 +16,9 @@ type ContentProps = {
  * @param props - The properties for the component.
  * @param props.as - An HTML tag type as a string. A key of JSX.IntrinsicElements, i.e. div, p, etc. Default is "dev".
  * @param props.children - The component child elements.
- * @param props.attributes - Attributes associated with the specified "as" prop.
  * @param props.gap - Gap spacing (as string) between elements in content container.
  * @param props.direction - Flex direction of elements in content container.
+ * @param props... (key: string) attributes associated with the specified "as" tag.
  *
  * @returns An HTML tag.
  */
@@ -27,7 +27,7 @@ export const Content = ({
   as = "div",
   gap = "1rem",
   direction = "column",
-  attributes,
+  ...attributes
 }: ContentProps) => {
   return (
     <DynamicTag

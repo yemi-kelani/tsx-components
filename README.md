@@ -16,6 +16,16 @@ Ladle allows for the creation of `<component>.stories.tsx` files. Each of these 
 npx ladle serve
 ```
 
+or use:
+
+```shell
+npm run serve
+```
+
+#### Class Names
+
+All class names should begin with the `tsx-cmpnt-` prefix followed by the name of the component (i.e. `typewriter`), and finally the element belonging to the component.
+
 ### Formatting
 
 Format all files with `prettier`:

@@ -1,0 +1,107 @@
+@use '../../common' as common;
+
+button.tsx-cmpnt-boomerang-button {
+  position: relative; // Needed for absolutely positioned tooltip
+  display: inline-block;
+  cursor: pointer;
+}
+
+span.tsx-cmpnt-boomerang-button-tip-text {
+  display: none;
+  position: absolute;
+  width: max-content;
+  max-width: 200px;
+
+  font-size: small;
+  text-align: center;
+
+  color: #fff;
+  border: 1px dotted white;
+  background-color: black;
+
+  padding: 5px;
+  border-radius: common.$border-radius-px-round;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+button.tsx-cmpnt-boomerang-button:hover
+  span.tsx-cmpnt-boomerang-button-tip-text {
+  display: block;
+}
+
+button.tsx-cmpnt-boomerang-position-top
+  span.tsx-cmpnt-boomerang-button-tip-text {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+button.tsx-cmpnt-boomerang-position-top
+  span.tsx-cmpnt-boomerang-button-tip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+button.tsx-cmpnt-boomerang-position-bottom
+  span.tsx-cmpnt-boomerang-button-tip-text {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+}
+
+button.tsx-cmpnt-boomerang-position-bottom
+  span.tsx-cmpnt-boomerang-button-tip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+button.tsx-cmpnt-boomerang-position-left
+  span.tsx-cmpnt-boomerang-button-tip-text {
+  right: 100%;
+  top: 50%;
+  transform: translateX(-5px) translateY(-50%);
+}
+
+button.tsx-cmpnt-boomerang-position-left
+  span.tsx-cmpnt-boomerang-button-tip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent black;
+}
+
+button.tsx-cmpnt-boomerang-position-right
+  span.tsx-cmpnt-boomerang-button-tip-text {
+  left: 100%;
+  top: 50%;
+  transform: translateX(5px) translateY(-50%);
+}
+
+button.tsx-cmpnt-boomerang-position-right
+  span.tsx-cmpnt-boomerang-button-tip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}

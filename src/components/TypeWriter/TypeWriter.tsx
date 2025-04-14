@@ -1,5 +1,5 @@
 import "./TypeWriter.css";
-import { HTMLAttributes, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 type TypeWriterProps = {
   terms: string[];
@@ -8,7 +8,7 @@ type TypeWriterProps = {
   loop?: boolean;
   cursor?: boolean;
   className?: string;
-  attributes?: HTMLAttributes<HTMLDivElement>;
+  [key: string]: unknown;
 };
 
 export const TypeWriter = ({
@@ -18,7 +18,7 @@ export const TypeWriter = ({
   loop = true,
   cursor = true,
   className,
-  attributes,
+  ...attributes
 }: TypeWriterProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visibleText, setVisibleText] = useState("");
@@ -78,8 +78,7 @@ export const TypeWriter = ({
           ? `tsx-cmpnt-typewriter-container ${className}`
           : "tsx-cmpnt-typewriter-container"
       }
-      {...attributes}
-    >
+      {...attributes}>
       <span className="tsx-cmpnt-typewriter-text">{visibleText}</span>
       {displayCursor && <span className="tsx-cmpnt-typewriter-cursor"></span>}
     </div>

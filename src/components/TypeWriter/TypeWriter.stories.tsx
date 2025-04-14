@@ -4,7 +4,7 @@ import { TypeWriter } from "./TypeWriter";
 export const World = () => {
   return (
     <Content>
-{[
+      {[
         <TypeWriter
           terms={["Hello World!"]}
           loop={true}
@@ -41,7 +41,7 @@ export const World = () => {
           ]}
           speed={100}
           delay={5}
-        />
+        />,
       ]}
     </Content>
   );
