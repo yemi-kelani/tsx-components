@@ -1,10 +1,10 @@
-import { Content } from "../../StoryUtils/Content";
+import { Content } from "../Content";
 import { TypeWriter } from "./TypeWriter";
 
 export const World = () => {
   return (
-    <Content
-      content={[
+    <Content>
+{[
         <TypeWriter
           terms={["Hello World!"]}
           loop={true}
@@ -41,8 +41,8 @@ export const World = () => {
           ]}
           speed={100}
           delay={5}
-        />,
+        />
       ]}
-    />
+    </Content>
   );
 };

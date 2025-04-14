@@ -16,7 +16,7 @@ Ladle allows for the creation of `<component>.stories.tsx` files. Each of these 
 npx ladle serve
 ```
 
-### Format
+### Formatting
 
 Format all files with `prettier`:
 
