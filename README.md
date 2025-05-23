@@ -26,6 +26,10 @@ npm run serve
 
 All class names should begin with the `tsx-cmpnt-` prefix followed by the name of the component (i.e. `typewriter`), and finally the element belonging to the component.
 
+#### Patching Vulnerabilities
+
+
+
 ### Formatting
 
 Format all files with `prettier`:

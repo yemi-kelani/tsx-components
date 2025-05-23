@@ -1,0 +1,34 @@
+@use "../../common" as common;
+
+.tsx-cmpnts-placeholder-shimmer-animator {
+  animation-duration: 2.2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(
+    to right,
+    common.$placeholder-grey 8%,
+    common.$placeholder-shimmer 18%,
+    common.$placeholder-grey 33%
+  );
+  background-size: 1200px 100%;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}

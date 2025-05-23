@@ -1,13 +1,21 @@
-import Gist from "react-gist";
+import "./Code.scss";
+import { Gist } from "../Gist/Gist";
+import { BoomerangButton } from "../BoomerangButton/BoomerangButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClone } from "@fortawesome/free-regular-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 type CodeProps = {
   type: "basic" | "highlight" | "gist";
-  text: string;
-  gistID?: string | number;
+  text?: string;
   language?: string;
-  color?: "light" | "dark";
+  gistID?: string;
+  gistFile?: string;
+  theme?: "light" | "dark";
   caption?: string;
+  lineNumbers?: boolean;
   className?: string;
+  [key: string]: unknown;
 };
 
 // Code **********************************************************************
@@ -18,26 +26,42 @@ type CodeProps = {
  * Content is automatically centered.
  *
  * @param props - The properties for the component.
- * @param props.as - An HTML tag type as a string. A key of JSX.IntrinsicElements, i.e. div, p, etc. Default is "dev".
- * @param props.children - The component child elements.
- * @param props.gap - Gap spacing (as string) between elements in content container.
- * @param props.direction - Flex direction of elements in content container.
+ * @param props.type -
+ * @param props.text -
+ * @param props.language -
+ * @param props.gistID -
+ * @param props.gistFile -
+ * @param props.theme -
+ * @param props.caption -
+ * @param props.className -
  * @param props... (key: string) attributes associated with the specified "as" tag.
  *
  * @returns A Code component element.
  */
 export const Code = ({
   type,
-  gistID,
   text,
   language,
-  color,
+  gistID,
+  gistFile,
+  theme,
   caption,
+  lineNumbers = false,
   className,
   ...attributes
 }: CodeProps) => {
+  const addLineNums = (text: string) => {
+    if (text) {
+      let lines: string[] = text.split("\n");
+      lines = lines.map((line, i) => `${i + 1}. ${line}`);
+      const updatedText: string = lines.join("\n");
+      return String.raw`${updatedText}`;
+    }
+    return text;
+  };
+
   return (
-    <code
+    <figure
       className={
         className
           ? `tsx-cmpnt-code-container tsx-cmpnt-code-type-${type} ${className}`
@@ -45,96 +69,53 @@ export const Code = ({
       }
       {...attributes}
     >
-        <Tool
-            toolTip={["copy", "copied"]}
-            tipPosition="top"
-            content={[
-              <i className="fa-regular fa-clone"></i>,
-              <i className="fa-solid fa-check"></i>,
-            ]}
-            classNames="btn-highlighted btn-copy"
-            toolFunction={() => {
-              navigator.clipboard.writeText(text);
-            }}/>
-      {}
-      <caption style={{ fontSize: "smaller" }}>{ caption }</caption>
-    </code>
+      {type !== "gist" && (
+        <BoomerangButton
+          tip={["copy", "copied"]}
+          tipPosition="top"
+          content={[
+            <FontAwesomeIcon
+              className={`tsx-cmpnt-code-btn-icon-${theme ?? ""}`}
+              icon={faClone}
+            />,
+            <FontAwesomeIcon
+              className={`tsx-cmpnt-code-btn-icon-${theme ?? ""}`}
+              icon={faCheck}
+            />,
+          ]}
+          className={`tsx-cmpnt-code-btn-copy tsx-cmpnt-code-btn-theme-${theme ?? ""}`}
+          handleClick={() => {
+            navigator.clipboard.writeText(text ?? "");
+          }}
+        />
+      )}
+      {type === "gist" && gistID && <Gist id={gistID} file={gistFile} />}
+      {type === "basic" && (
+        <pre className={`preblock-${language ?? ""} tsx-cmpnt-code-pre-theme-${theme ?? ""}`}>
+          <code className={`text-${language ?? ""} tsx-cmpnt-code-code-theme-${theme ?? ""}`}>
+            {lineNumbers ? addLineNums(text ?? "") : String.raw`${text ?? ""}`}
+          </code>
+        </pre>
+      )}
+      {/* {
+            type === "highlight" &&
+            <SyntaxHighlighter
+                language={language}
+                style={solarizedlight}
+                showLineNumbers={true}>
+                {lineNumbers ? addLineNums(text ?? "") : String.raw`${text ?? ""}`}
+            </SyntaxHighlighter>
+        } */}
+      <div>
+        {language && (
+          <i className="tsx-cmpnt-code-lang-label">
+            <small>{language?.toLowerCase()}</small>
+          </i>
+        )}
+        {caption && (
+          <figcaption style={{ fontSize: "smaller" }}>{caption}</figcaption>
+        )}
+      </div>
+    </figure>
   );
-
-  let returnBlock;
-
-  switch (type) {
-    case "gist":
-      returnBlock = (
-        <div className="tsx-cmpnt-code-container" style={style}>
-          <Gist id={gistID} />
-          <caption style={{ fontSize: "smaller" }}>{caption}</caption>
-        </div>
-      );
-      break;
-    case "highlight":
-      returnBlock = (
-        <div className="code-container type-highlight">
-          <Tool
-            toolTip={["copy", "copied :)"]}
-            tipPosition="top"
-            content={[
-              <i class="fa-regular fa-clone"></i>,
-              <i className="fa-solid fa-check"></i>,
-            ]}
-            classNames="btn-highlighted btn-copy"
-            toolFunction={() => {
-              navigator.clipboard.writeText(text);
-            }}
-          />
-          <SyntaxHighlighter
-            language={language}
-            style={solarizedlight}
-            showLineNumbers={true}
-          >
-            {String.raw`${text}`}
-          </SyntaxHighlighter>
-          <caption style={{ fontSize: "smaller" }}>{caption}</caption>
-        </div>
-      );
-      break;
-    case "basic":
-      const processedBlock = String.raw`${text}`;
-      const preClassName = `preblock-${language ?? ""}`;
-      const codeClassName = `text-${language ?? ""}`;
-      returnBlock = (
-        <div className="code-container">
-          <Tool
-            toolTip={["copy", "copied :)"]}
-            tipPosition="top"
-            content={[
-              <i id={`icon-code-${color}`} className="fa-regular fa-clone"></i>,
-              <i id={`icon-code-${color}`} className="fa-solid fa-check"></i>,
-            ]}
-            IDs={`btn-colored-${color}`}
-            classNames="btn-copy"
-            toolFunction={() => {
-              navigator.clipboard.writeText(processedBlock);
-            }}
-          />
-          <pre className={preClassName} id={color}>
-            <code className={codeClassName} id={color}>
-              {processedBlock}
-            </code>
-          </pre>
-          <caption style={{ fontSize: "smaller" }}>{caption}</caption>
-        </div>
-      );
-      break;
-    default:
-      returnBlock = (
-        <div className="code-container">
-          <pre className="pre-undefined">
-            <code className="code-undefined">Error: Undefined code-block.</code>
-          </pre>
-        </div>
-      );
-  }
-
-  return returnBlock;
 };

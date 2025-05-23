@@ -10,6 +10,9 @@
     "preview": "vite preview",
     "serve": "npx ladle serve"
   },
+  "overrides": {
+    
+  },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@ladle/react": "^5.0.2",
@@ -28,5 +31,10 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2"
   }
 }

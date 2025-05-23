@@ -1,12 +1,11 @@
 @use '../../common' as common;
 
-button.tsx-cmpnt-boomerang-btn {
-  position: relative; // Needed for absolutely positioned tooltip
+div.tsx-cmpnt-hovertip {
+  position: relative;
   display: inline-block;
-  cursor: pointer;
 }
 
-span.tsx-cmpnt-boomerang-btn-tip-text {
+span.tsx-cmpnt-hovertip-tip-text {
   display: none;
   position: absolute;
   width: max-content;
@@ -25,20 +24,20 @@ span.tsx-cmpnt-boomerang-btn-tip-text {
   white-space: nowrap;
 }
 
-button.tsx-cmpnt-boomerang-btn:hover
-  span.tsx-cmpnt-boomerang-btn-tip-text {
+div.tsx-cmpnt-hovertip:hover
+  span.tsx-cmpnt-hovertip-tip-text {
   display: block;
 }
 
-button.tsx-cmpnt-boomerang-position-top
-  span.tsx-cmpnt-boomerang-btn-tip-text {
+div.tsx-cmpnt-hovertip-position-top
+  span.tsx-cmpnt-hovertip-tip-text {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-5px);
 }
 
-button.tsx-cmpnt-boomerang-position-top
-  span.tsx-cmpnt-boomerang-btn-tip-text::after {
+div.tsx-cmpnt-hovertip-position-top
+  span.tsx-cmpnt-hovertip-tip-text::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -49,15 +48,15 @@ button.tsx-cmpnt-boomerang-position-top
   border-color: black transparent transparent transparent;
 }
 
-button.tsx-cmpnt-boomerang-position-bottom
-  span.tsx-cmpnt-boomerang-btn-tip-text {
+div.tsx-cmpnt-hovertip-position-bottom
+  span.tsx-cmpnt-hovertip-tip-text {
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(5px);
 }
 
-button.tsx-cmpnt-boomerang-position-bottom
-  span.tsx-cmpnt-boomerang-btn-tip-text::after {
+div.tsx-cmpnt-hovertip-position-bottom
+  span.tsx-cmpnt-hovertip-tip-text::after {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -68,15 +67,15 @@ button.tsx-cmpnt-boomerang-position-bottom
   border-color: transparent transparent black transparent;
 }
 
-button.tsx-cmpnt-boomerang-position-left
-  span.tsx-cmpnt-boomerang-btn-tip-text {
+div.tsx-cmpnt-hovertip-position-left
+  span.tsx-cmpnt-hovertip-tip-text {
   right: 100%;
   top: 50%;
   transform: translateX(-5px) translateY(-50%);
 }
 
-button.tsx-cmpnt-boomerang-position-left
-  span.tsx-cmpnt-boomerang-btn-tip-text::after {
+div.tsx-cmpnt-hovertip-position-left
+  span.tsx-cmpnt-hovertip-tip-text::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -87,15 +86,15 @@ button.tsx-cmpnt-boomerang-position-left
   border-color: transparent transparent transparent black;
 }
 
-button.tsx-cmpnt-boomerang-position-right
-  span.tsx-cmpnt-boomerang-btn-tip-text {
+div.tsx-cmpnt-hovertip-position-right
+  span.tsx-cmpnt-hovertip-tip-text {
   left: 100%;
   top: 50%;
   transform: translateX(5px) translateY(-50%);
 }
 
-button.tsx-cmpnt-boomerang-position-right
-  span.tsx-cmpnt-boomerang-btn-tip-text::after {
+div.tsx-cmpnt-hovertip-position-right
+  span.tsx-cmpnt-hovertip-tip-text::after {
   content: "";
   position: absolute;
   top: 50%;

@@ -11,6 +11,24 @@ type TypeWriterProps = {
   [key: string]: unknown;
 };
 
+/**
+ * Renders a TypeWriter animation for the provided terms array. 
+ *
+ * @param props - The properties for the component.
+ * @param props.terms - An array of strings to be displayed sequentially via type animation.
+ * @param props.speed - The speed at which the animation plays. Range [10, 100] in intervals of 10
+ * The higher the speed, the faster the animation plays.
+ * @param props.delay - The delay between animating different terms in the provided terms array.
+ * Range [1, 10] in intervals of 1.
+ * @param props.loop - A boolean specifying whether or not to restart the animation after it completes
+ * for all items in the terms array.
+ * @param props.cursor - A boolean specifying whether or not to display a typing cursor along with the 
+ * animation
+ * @param props.className - Additional className(s) prescribed to the component.
+ * @param props... (key: string) attributes associated with the specified "as" tag.
+ *
+ * @returns An HTML tag.
+ */
 export const TypeWriter = ({
   terms,
   speed = 10,

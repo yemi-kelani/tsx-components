@@ -1,0 +1,137 @@
+@use "../../common" as common;
+
+$dark-theme-font-color: #46d339;
+$tsx-cmpnt-code-container-min-width: 200px;
+
+figure.tsx-cmpnt-code-container {
+  position: relative;
+  margin: 1em auto;
+  overflow-y: "hidden";
+  min-width: $tsx-cmpnt-code-container-min-width;
+}
+
+.tsx-cmpnt-code-type-gist {
+  height: 100%;
+  min-width: 350px;
+}
+
+.tsx-cmpnt-code-type-gist,
+.tsx-cmpnt-code-type-gist iframe {
+  min-height: 200px;
+}
+
+.tsx-cmpnt-code-type-highlight pre {
+  width: inherit;
+  height: auto;
+}
+
+.tsx-cmpnt-code-container pre[class*="preblock-"] {
+  width: 100%;
+  padding: 1em 2em;
+  border-radius: common.$border-radius-px-round;
+  font-size: 80%;
+  line-height: 1.5em;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.tsx-cmpnt-code-container pre[class*="preblock-"],
+.tsx-cmpnt-code-container
+  pre[class*="preblock-"].tsx-cmpnt-code-pre-theme-light {
+  border: 1px solid #444;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.tsx-cmpnt-code-container
+  pre[class*="preblock-"].tsx-cmpnt-code-pre-theme-dark {
+  border: 1px solid $dark-theme-font-color;
+  background-color: #111;
+  box-sizing: border-box;
+}
+
+.tsx-cmpnt-code-container pre[class*="preblock-"] code {
+  white-space: pre;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  overflow-wrap: anywhere;
+}
+
+.tsx-cmpnt-code-container
+  pre[class*="preblock-"]
+  code.tsx-cmpnt-code-code-theme-dark {
+  color: $dark-theme-font-color;
+}
+
+.tsx-cmpnt-code-btn-copy {
+  color: black;
+  position: absolute;
+  top: 2.3em;
+  right: 0.5em;
+  float: right;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border-radius: common.$border-radius-px-round;
+  border: 1px solid #444;
+  cursor: pointer;
+  outline: none;
+  padding: 2px 4px;
+}
+
+.tsx-cmpnt-code-btn-theme-dark {
+  border: 1px solid $dark-theme-font-color;
+}
+
+.tsx-cmpnt-code-btn-theme-light,
+.tsx-cmpnt-code-btn-icon-light {
+  color: black;
+}
+
+.tsx-cmpnt-code-btn-theme-dark,
+.tsx-cmpnt-code-btn-icon-dark {
+  color: $dark-theme-font-color;
+}
+
+.tsx-cmpnt-code-lang-label {
+    display: block;
+    font-size: 0.75em;
+    text-align: right;
+    // margin-top: 0.25em;
+    color: #888;
+}
+
+.tsx-cmpnt-code-container div {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.tsx-cmpnt-code-container div i.tsx-cmpnt-code-lang-label {
+    margin-right: auto;
+    padding-right: 1em;
+}
+
+.tsx-cmpnt-code-container figcaption {
+    display: inline;
+    text-align: left;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.tsx-cmpnt-code-container iframe {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  .tsx-cmpnt-code-container {
+    max-width: 350px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .tsx-cmpnt-code-type-gist {
+    min-width: auto;
+  }
+}
