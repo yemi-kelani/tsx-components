@@ -91,12 +91,12 @@ export const TypeWriter = ({
 
   return (
     <div
+      {...attributes}
       className={
         className
           ? `tsx-cmpnt-typewriter-container ${className}`
           : "tsx-cmpnt-typewriter-container"
-      }
-      {...attributes}>
+      }>
       <span className="tsx-cmpnt-typewriter-text">{visibleText}</span>
       {displayCursor && <span className="tsx-cmpnt-typewriter-cursor"></span>}
     </div>

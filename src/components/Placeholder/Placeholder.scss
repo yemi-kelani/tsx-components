@@ -1,5 +1,15 @@
 @use "../../common" as common;
 
+.tsx-cmpnts-placeholder {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    background-color: common.$placeholder-grey;
+    border-radius: common.$border-radius-px-round;
+}
+
 .tsx-cmpnts-placeholder-shimmer-animator {
   animation-duration: 2.2s;
   animation-fill-mode: forwards;

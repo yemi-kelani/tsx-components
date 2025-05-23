@@ -54,13 +54,13 @@ export const BoomerangButton = ({
 
   return (
     <button
+      {...attributes}
       className={
         className
           ? `tsx-cmpnt-boomerang-btn tsx-cmpnt-boomerang-position-${tipPosition} ${className}`
           : `tsx-cmpnt-boomerang-btn tsx-cmpnt-boomerang-position-${tipPosition}`
       }
-      onClick={flipClicked}
-      {...attributes}>
+      onClick={flipClicked}>
       <span className="tsx-cmpnt-boomerang-btn-tip-text">
         {clicked ? tip[1] : tip[0]}
       </span>

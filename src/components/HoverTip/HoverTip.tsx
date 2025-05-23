@@ -32,13 +32,12 @@ export const HoverTip = ({
 }: HoverTipProps) => {
   return (
     <div
+      {...attributes}
       className={
         className
           ? `tsx-cmpnt-hovertip tsx-cmpnt-hovertip-position-${tipPosition} ${className}`
           : `tsx-cmpnt-hovertip tsx-cmpnt-hovertip-position-${tipPosition}`
-      }
-      {...attributes}
-    >
+      }>
       <span className="tsx-cmpnt-hovertip-tip-text">{tip}</span>
       {children}
     </div>

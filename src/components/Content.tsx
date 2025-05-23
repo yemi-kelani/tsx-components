@@ -40,8 +40,8 @@ export const Content = ({
         justifyContent: "center",
         gap: gap,
       }}
-      as={as}
       {...attributes}
+      as={as}
     >
       {children}
     </DynamicTag>

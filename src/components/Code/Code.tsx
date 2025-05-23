@@ -1,5 +1,5 @@
 import "./Code.scss";
-import { Gist } from "../Gist/Gist";
+import { Gist } from "./Gist";
 import { BoomerangButton } from "../BoomerangButton/BoomerangButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone } from "@fortawesome/free-regular-svg-icons";
@@ -62,13 +62,12 @@ export const Code = ({
 
   return (
     <figure
+      {...attributes}
       className={
         className
           ? `tsx-cmpnt-code-container tsx-cmpnt-code-type-${type} ${className}`
           : `tsx-cmpnt-code-container tsx-cmpnt-code-type-${type}`
-      }
-      {...attributes}
-    >
+      }>
       {type !== "gist" && (
         <BoomerangButton
           tip={["copy", "copied"]}

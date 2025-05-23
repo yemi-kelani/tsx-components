@@ -1,0 +1,58 @@
+.tsx-cmpnts-spinner {
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 5px solid rgba(0, 0, 0, 0.25);;
+   border-top: 5px solid #3498db;
+   -webkit-animation: spin 1s infinite linear;
+   -moz-animation: spin 1s infinite linear;
+   -o-animation: spin 1s infinite linear;
+   animation: spin 1s infinite linear;
+}
+
+@-webkit-keyframes spin {
+   from {
+      -webkit-transform: rotate(0deg);
+   }
+
+   to {
+      -webkit-transform: rotate(359deg);
+   }
+}
+
+@-moz-keyframes spin {
+   from {
+      -moz-transform: rotate(0deg);
+   }
+
+   to {
+      -moz-transform: rotate(359deg);
+   }
+}
+
+@-o-keyframes spin {
+   from {
+      -o-transform: rotate(0deg);
+   }
+
+   to {
+      -o-transform: rotate(359deg);
+   }
+}
+
+@keyframes spin {
+   from {
+      transform: rotate(0deg);
+   }
+
+   to {
+      transform: rotate(359deg);
+   }
+}
+
+// @media only screen and (max-width: 600px) {
+//     .tsx-cmpnts-loading-placeholder.loading-style-large {
+//         width: 300px !important;
+//         height: 300px !important;
+//     }
+// }

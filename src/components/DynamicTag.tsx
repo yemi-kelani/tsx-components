@@ -10,7 +10,7 @@ type DynamicTagProps = {
  * Renders an HTML tag.
  *
  * @param props - The properties for the component.
- * @param props.as - An HTML tag type as a string. A key of JSX.IntrinsicElements, i.e. div, p, etc. Default is "dev".
+ * @param props.as - An HTML tag type as a string. A key of JSX.IntrinsicElements, i.e. div, p, etc. Default is "div".
  * @param props.children - The component child elements.
  * @param props... (key: string) attributes associated with the specified "as" tag.
  *

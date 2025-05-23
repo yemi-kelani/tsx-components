@@ -2,6 +2,9 @@ import { CenterDisplay } from "../StoryUtils/CenterDisplay";
 import { ImagePlaceholder } from "./ImagePlaceholder";
 import { LoadingPlaceholder } from "./LoadingPlaceholder";
 
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faCircleNotch, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+
 export const World = () => {
     return (
         <CenterDisplay direction="row">
@@ -13,9 +16,9 @@ export const World = () => {
             </CenterDisplay>
 
             <CenterDisplay>
-                <LoadingPlaceholder animate={false} iconSize="3x" size="large"/>
-                <LoadingPlaceholder iconSize="2x" size="small"/>
-                <LoadingPlaceholder iconSize="4x" size="medium"/>
+                <LoadingPlaceholder animate={false} size="large"/>
+                <LoadingPlaceholder size="small"/>
+                <LoadingPlaceholder size="medium"/>
             </CenterDisplay>
 
             <CenterDisplay>
