@@ -3,8 +3,19 @@ $maximum-allowable-screen-width-larger: 1400px;
 $maximum-allowable-screen-width-largest: 1600px;
 $maximum-allowable-screen-width-component: 1900px;
 
+// Media Widths
 
+// Soft shadow for images and cards
+$box-shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+// Muted color for captions and secondary text
+$text-muted-color: #666;
+
+// Media query breakpoints
+$media-screen-mobile: 480px;
+$media-screen-tablet-small: 768px;
 $media-screen-tablet: 960px;
+$media-screen-desktop: 1024px;
 $media-screen-phone: 640px;
 
 $reduced-banner-height: 350px;
@@ -22,7 +33,7 @@ $six-red: #c3515c;
 $placeholder-grey: #dadada;
 $placeholder-shimmer: #e5e5e5;
 
-/* Border Radius */
+// Border Radius
 $border-radius-px: 2px;
 $border-radius-px-round: 4px;
 $border-radius-px-rounder: 7px;

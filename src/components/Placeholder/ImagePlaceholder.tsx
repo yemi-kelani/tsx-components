@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { Placeholder } from "./Placeholder";
 
-type ImagePlaceholderProps = {
+export type ImagePlaceholderProps = {
   size?: "small" | "medium" | "large" | undefined;
   iconSize?: "2xs" | "xs" | "sm" | "lg" | "xl" | "2xl" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x";
   style?: React.CSSProperties;

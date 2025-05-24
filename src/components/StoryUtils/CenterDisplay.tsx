@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Content } from "../Content";
+import { Content } from "../Content/Content";
 
 export const CenterDisplay = ({
   children,

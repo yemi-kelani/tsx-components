@@ -1,6 +1,6 @@
 @use "../../common" as common;
 
-.tsx-cmpnts-placeholder {
+.tsx-cmpnt-placeholder {
     margin: 10px auto;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
     border-radius: common.$border-radius-px-round;
 }
 
-.tsx-cmpnts-placeholder-shimmer-animator {
+.tsx-cmpnt-placeholder-shimmer-animator {
   animation-duration: 2.2s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;

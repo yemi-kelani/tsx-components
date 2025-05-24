@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-type GistProps = {
+export type GistProps = {
   id: string;
   file?: string;
 }

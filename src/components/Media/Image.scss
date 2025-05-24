@@ -1,0 +1,59 @@
+@use "../../common" as common;
+
+.tsx-cmpnt-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1em auto;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+
+    figcaption {
+        font-size: 0.85rem;
+        margin-top: 0.5em;
+        color: common.$text-muted-color;
+    }
+}
+
+img[id^="tsx-cmpnt-image-"] {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: common.$border-radius-px;
+    box-shadow: common.$box-shadow-soft;
+
+    // Optional: keep aspect ratio
+    aspect-ratio: 16 / 9;
+
+    // fallback for older browsers
+    @supports not (aspect-ratio: 16 / 9) {
+        height: auto;
+    }
+}
+
+// Optional size modifiers for desktop view
+.tsx-cmpnt-image-small {
+    max-width: 40%;
+}
+
+.tsx-cmpnt-image-medium {
+    max-width: 65%;
+}
+
+.tsx-cmpnt-image-large {
+    max-width: 100%;
+}
+
+// Responsive behavior
+@media only screen and (max-width: common.$media-screen-tablet-small) {
+    .tsx-cmpnt-image-small,
+    .tsx-cmpnt-image-medium,
+    .tsx-cmpnt-image-large {
+        max-width: 100%;
+        width: 100%;
+    }
+}

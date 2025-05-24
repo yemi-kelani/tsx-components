@@ -2,7 +2,7 @@ import "./Placeholder.scss";
 import { ReactNode, JSX } from "react";
 import { DynamicTag } from "../DynamicTag";
 
-type PlaceholderProps = {
+export type PlaceholderProps = {
   size?: "small" | "medium" | "large" | undefined;
   style?: React.CSSProperties;
   animate?: boolean;
@@ -60,8 +60,8 @@ export const Placeholder = ({
       style={size && !style ? styles[size] : (style ?? {})}
       className={ 
         animate 
-        ? `${className} tsx-cmpnts-placeholder tsx-cmpnts-placeholder-shimmer-animator`
-        : `${className} tsx-cmpnts-placeholder`
+        ? `${className} tsx-cmpnt-placeholder tsx-cmpnt-placeholder-shimmer-animator`
+        : `${className} tsx-cmpnt-placeholder`
       }>
       {children}
     </DynamicTag>

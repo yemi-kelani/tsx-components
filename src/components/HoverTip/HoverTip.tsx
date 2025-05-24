@@ -1,7 +1,7 @@
 import "./HoverTip.scss";
 import { ReactNode } from "react";
 
-type HoverTipProps = {
+export type HoverTipProps = {
   tip: string;
   tipPosition?: "top" | "left" | "right" | "bottom";
   children: ReactNode;

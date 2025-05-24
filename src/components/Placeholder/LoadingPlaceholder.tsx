@@ -3,7 +3,7 @@ import { JSX, ReactNode } from "react";
 import { Spinner } from "./Spinner";
 import { Placeholder } from "./Placeholder";
 
-type LoadingPlaceholderProps = {
+export type LoadingPlaceholderProps = {
   icon?: ReactNode;
   size?: "small" | "medium" | "large" | undefined;
   style?: React.CSSProperties;

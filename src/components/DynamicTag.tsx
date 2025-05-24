@@ -1,6 +1,6 @@
 import { JSX, ReactNode } from "react";
 
-type DynamicTagProps = {
+export type DynamicTagProps = {
   as?: keyof JSX.IntrinsicElements;
   children: ReactNode;
   [key: string]: unknown;

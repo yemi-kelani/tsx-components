@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone } from "@fortawesome/free-regular-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-type CodeProps = {
+export type CodeProps = {
   type: "basic" | "highlight" | "gist";
   text?: string;
   language?: string;

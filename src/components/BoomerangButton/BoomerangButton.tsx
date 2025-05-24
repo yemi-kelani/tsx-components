@@ -1,7 +1,7 @@
 import "./BommerangButton.scss";
 import { useState, ReactNode } from "react";
 
-type BoomerangButtonProps = {
+export type BoomerangButtonProps = {
   tip: [string, string];
   content: [ReactNode, ReactNode];
   handleClick: () => void;

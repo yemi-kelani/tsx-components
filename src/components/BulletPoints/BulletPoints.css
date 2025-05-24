@@ -1,0 +1,15 @@
+.tsx-cmpnt-bullet-points-container {
+    width: 100%;
+    display: flex;
+    float: left;
+}
+
+.tsx-cmpnt-bullet-points-container ol,
+.tsx-cmpnt-bullet-points-container ul {
+    line-height: 120%;
+    list-style-position: inside;
+}
+
+.tsx-cmpnt-bullet-points-container ol {
+    counter-reset: item;
+}
