@@ -10,9 +10,6 @@
     "preview": "vite preview",
     "serve": "npx ladle serve"
   },
-  "overrides": {
-    
-  },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@ladle/react": "^5.0.2",
@@ -23,7 +20,6 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
-    "latest": "^0.2.0",
     "prettier": "3.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -36,5 +32,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2"
-  }
+  },
+  "overrides": {}
 }
