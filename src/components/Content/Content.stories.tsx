@@ -1,6 +1,7 @@
 import { LeftRightContent } from "./LeftRightContent";
 import { Content } from "./Content";
 import { StackedContent } from "./StackedContent";
+import { Text } from "./Text";
 
 const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat odio non risus lacinia lacinia. Ut a ornare lacus. Vivamus semper, nulla tincidunt tempor viverra, lectus augue dignissim velit, ut mollis sem leo quis justo. Duis fringilla, lectus non iaculis pretium, ipsum mauris consequat mi, non sagittis lacus magna quis nunc. Proin scelerisque vel lacus in gravida. Sed non justo et metus placerat luctus in vitae tellus. Etiam sit amet justo tempor, commodo ex vitae, suscipit sem.";
 
@@ -129,6 +130,78 @@ export const World = () => {
                     gap="2rem"
                 />
             </Content>
+
+            <hr style={{ width: "100%" }}/>
+
+            <Text
+                textAlign="left"
+                content={[lorem]}
+                indent={true}
+                />
+
+            <Text
+                textAlign="justify"
+                content={[lorem]}
+                indent={false}
+                />
+
+            <Text
+                sectionTitle="Rightward"
+                textAlign="right"
+                content={[lorem]}
+                indent={false}
+                />
+
+            <Text
+                indent={false}
+                content={[
+                    "Plain text paragraph.",
+                    "<strong>&nbsp;This text is bold using HTML.&nbsp;</strong>",
+                    "<em>&nbsp;This text is italicized.&nbsp;</em>",
+                ]}
+                />
+
+
+            <Text
+                sectionTitle="Key Features"
+                indent={false}
+                content={[
+                    {
+                    text: "The system supports the following:",
+                    listType: "ul",
+                    listStyleType: "disc",
+                    subBulletList: [
+                        "Fast performance",
+                        "Modular architecture",
+                        "Developer-friendly APIs",
+                    ],
+                    },
+                    "Additional details will be shared soon.",
+                ]}
+                />
+
+            <Text
+                indent={true}
+                sectionTitle="Benefits"
+                borderColor="blue"
+                content={[
+                    lorem,
+                    "<br/><br/>",
+                    {
+                        text: "<strong>Why choose our platform?</strong>",
+                        listType: "ul",
+                        listStyleType: "circle",
+                        subBulletList: [
+                            "Easy to learn",
+                            "Extensive documentation",
+                            "<em>Community support</em>",
+                        ],
+                    },
+                    lorem,
+                    lorem
+                ]}
+                textAlign="left"
+                />
         </>
     );
 }

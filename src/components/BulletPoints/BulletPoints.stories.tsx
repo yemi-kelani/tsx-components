@@ -17,6 +17,7 @@ export const World = () => {
                             "<b>This is bold.</b>",
                             {
                                 text: "Sub points:",
+                                listType: "ul",
                                 listStyleType: "disc",
                                 subBulletList: [
                                     "abc",
@@ -24,6 +25,7 @@ export const World = () => {
                                     "xyz",
                                     {
                                         text: "More points:",
+                                        listType: "ul",
                                         listStyleType: "square",
                                         subBulletList: [
                                             "abc",
@@ -53,6 +55,7 @@ export const World = () => {
                             "<b>This is bold.</b>",
                             {
                                 text: "Sub points:",
+                                listType: "ol",
                                 listStyleType: "lower-alpha",
                                 subBulletList: [
                                     "abc",
@@ -73,6 +76,7 @@ export const World = () => {
                         "<b>This is bold.</b>",
                         {
                             text: "Sub points:",
+                            listType: "ul",
                             listStyleType: "disc",
                             subBulletList: [
                                 "abc",
@@ -80,6 +84,7 @@ export const World = () => {
                                 "xyz",
                                 {
                                     text: "More points:",
+                                    listType: "ul",
                                     listStyleType: "circle",
                                     subBulletList: [
                                         "abc",
@@ -87,6 +92,7 @@ export const World = () => {
                                         "xyz",
                                         {
                                             text: "Even more points:",
+                                            listType: "ul",
                                             listStyleType: "square",
                                             subBulletList: [
                                                 "This is regular text.",

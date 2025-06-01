@@ -29,6 +29,7 @@ export type listStyleType = OLType | ULType;
 
 export interface ComplexBulletPoint {
     text: string,
+    listType: "ul" | "ol";
     listStyleType: listStyleType,
     subBulletList: BulletPoint[]
 };
@@ -66,7 +67,7 @@ export const BulletPoints = ({ listType, listStyleType, bulletList, ...attribute
                             : bulletpoint.text
                     }
                     <BulletPoints
-                        listType={listType}
+                        listType={bulletpoint.listType}
                         listStyleType={bulletpoint.listStyleType}
                         bulletList={bulletpoint.subBulletList}
                     />

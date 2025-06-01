@@ -6,7 +6,7 @@ import { faClone } from "@fortawesome/free-regular-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export type CodeProps = {
-  type: "basic" | "highlight" | "gist";
+  type: "basic" | "gist";
   text?: string;
   language?: string;
   gistID?: string;
@@ -18,25 +18,28 @@ export type CodeProps = {
   [key: string]: unknown;
 };
 
-// Code **********************************************************************
-// Displays Github Gist code as a well as local code blocks. Code blocks need
-// to preseve white space (use `` strings) and should be used on small blocks.
 /**
- * Renders the child elements within a specified HTML tag. The default tag is "dev".
- * Content is automatically centered.
+ * Renders a code snippet block with optional line numbers, GitHub Gist integration, and theme customization.
+ *
+ * Supports two display modes:
+ * - `"basic"`: Displays a local code block using <pre><code> with optional syntax highlighting and a copy button.
+ * - `"gist"`: Embeds a GitHub Gist via its ID and optionally a specific file within the Gist.
+ *
+ * Additional customization includes themes, language labels, captions, and line number rendering.
  *
  * @param props - The properties for the component.
- * @param props.type -
- * @param props.text -
- * @param props.language -
- * @param props.gistID -
- * @param props.gistFile -
- * @param props.theme -
- * @param props.caption -
- * @param props.className -
- * @param props... (key: string) attributes associated with the specified "as" tag.
+ * @param props.type - The display mode: either `"basic"` for a local code block or `"gist"` for a GitHub Gist.
+ * @param props.text - The code to display (only used if `type` is `"basic"`).
+ * @param props.language - Optional language label used for styling or syntax hints.
+ * @param props.gistID - The GitHub Gist ID (required if `type` is `"gist"`).
+ * @param props.gistFile - The specific file in the Gist to display (optional).
+ * @param props.theme - Theme for the code block. Either `"light"` or `"dark"`.
+ * @param props.caption - Optional caption displayed below the code block.
+ * @param props.lineNumbers - Whether to display line numbers in the code block.
+ * @param props.className - Additional CSS classes for the outer container.
+ * @param props.(key: string) - Additional attributes to apply to the outer `<figure>` element.
  *
- * @returns A Code component element.
+ * @returns A rendered <figure> element containing the code block or embedded Gist.
  */
 export const Code = ({
   type,
@@ -96,15 +99,6 @@ export const Code = ({
           </code>
         </pre>
       )}
-      {/* {
-            type === "highlight" &&
-            <SyntaxHighlighter
-                language={language}
-                style={solarizedlight}
-                showLineNumbers={true}>
-                {lineNumbers ? addLineNums(text ?? "") : String.raw`${text ?? ""}`}
-            </SyntaxHighlighter>
-        } */}
       <div>
         {language && (
           <i className="tsx-cmpnt-code-lang-label">

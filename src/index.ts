@@ -5,6 +5,7 @@ export * from "./components/Code/Gist";
 export * from "./components/Content/Content";
 export * from "./components/Content/LeftRightContent";
 export * from "./components/Content/StackedContent";
+export * from "./components/Content/Text";
 export * from "./components/DynamicTag";
 export * from "./components/Media/Image";
 export * from "./components/Media/Video";
