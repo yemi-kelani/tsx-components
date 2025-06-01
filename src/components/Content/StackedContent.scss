@@ -1,0 +1,27 @@
+@use "../../common" as common;
+
+.tsx-cmpnt-stacked-content-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.tsx-cmpnt-stacked-content-top,
+.tsx-cmpnt-stacked-content-bottom {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: common.$media-screen-tablet-small) {
+  .tsx-cmpnt-stacked-content-container {
+    gap: 0.75rem;
+  }
+}

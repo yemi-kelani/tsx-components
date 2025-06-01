@@ -6,6 +6,8 @@ export type ContentProps = {
   as?: keyof JSX.IntrinsicElements;
   gap?: string;
   direction?: "column" | "row";
+  width?: string;
+  height?: string;
   [key: string]: unknown;
 };
 
@@ -18,6 +20,8 @@ export type ContentProps = {
  * @param props.children - The component child elements.
  * @param props.gap - Gap spacing (as string) between elements in content container.
  * @param props.direction - Flex direction of elements in content container.
+ * @param props.width - Width of content container.
+ * @param props.height - Height of content container.
  * @param props... (key: string) attributes associated with the specified "as" tag.
  *
  * @returns An HTML tag.
@@ -27,13 +31,15 @@ export const Content = ({
   as = "div",
   gap = "1rem",
   direction = "column",
+  width = "100%",
+  height = "100%",
   ...attributes
 }: ContentProps) => {
   return (
     <DynamicTag
       style={{
-        width: "100%",
-        height: "100%",
+        width: width,
+        height: height,
         display: "flex",
         flexDirection: direction,
         alignItems: "center",
