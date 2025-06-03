@@ -1,11 +1,11 @@
-import { JSX, ReactNode } from "react";
-import { DynamicTag } from "../DynamicTag";
+import { JSX, ReactNode } from 'react';
+import { DynamicTag } from '../DynamicTag';
 
 export type ContentProps = {
   children: ReactNode;
   as?: keyof JSX.IntrinsicElements;
   gap?: string;
-  direction?: "column" | "row";
+  direction?: 'column' | 'row';
   width?: string;
   height?: string;
   [key: string]: unknown;
@@ -28,11 +28,11 @@ export type ContentProps = {
  */
 export const Content = ({
   children,
-  as = "div",
-  gap = "1rem",
-  direction = "column",
-  width = "100%",
-  height = "100%",
+  as = 'div',
+  gap = '1rem',
+  direction = 'column',
+  width = '100%',
+  height = '100%',
   ...attributes
 }: ContentProps) => {
   return (
@@ -40,10 +40,10 @@ export const Content = ({
       style={{
         width: width,
         height: height,
-        display: "flex",
+        display: 'flex',
         flexDirection: direction,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: 'center',
+        justifyContent: 'center',
         gap: gap,
       }}
       {...attributes}

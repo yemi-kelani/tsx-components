@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { BulletPoints, ComplexBulletPoint } from '../BulletPoints/BulletPoints';
-import { DynamicTag } from '../DynamicTag';
+import { BulletPoints, ComplexBulletPoint } from '../../BulletPoints/BulletPoints';
+import { DynamicTag } from '../../DynamicTag';
 import './Text.css';
 
 type TextProps = {
@@ -83,7 +83,7 @@ export const Text = ({
             <h2 id={sectionID} style={{ textAlign }}>
               {sectionTitle}
             </h2>
-            <hr aria-hidden="true" style={{borderColor}} />
+            <hr aria-hidden="true" style={{ borderColor }} />
           </>
         )}
         {!sectionTitle && sectionSubTitle && (

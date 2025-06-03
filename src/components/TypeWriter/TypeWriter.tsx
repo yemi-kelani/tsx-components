@@ -1,5 +1,5 @@
-import "./TypeWriter.css";
-import { useState, useEffect } from "react";
+import './TypeWriter.css';
+import { useState, useEffect } from 'react';
 
 export type TypeWriterProps = {
   terms: string[];
@@ -12,7 +12,7 @@ export type TypeWriterProps = {
 };
 
 /**
- * Renders a TypeWriter animation for the provided terms array. 
+ * Renders a TypeWriter animation for the provided terms array.
  *
  * @param props - The properties for the component.
  * @param props.terms - An array of strings to be displayed sequentially via type animation.
@@ -22,7 +22,7 @@ export type TypeWriterProps = {
  * Range [1, 10] in intervals of 1.
  * @param props.loop - A boolean specifying whether or not to restart the animation after it completes
  * for all items in the terms array.
- * @param props.cursor - A boolean specifying whether or not to display a typing cursor along with the 
+ * @param props.cursor - A boolean specifying whether or not to display a typing cursor along with the
  * animation
  * @param props.className - Additional className(s) prescribed to the component.
  * @param props... (key: string) attributes associated with the specified "as" tag.
@@ -39,7 +39,7 @@ export const TypeWriter = ({
   ...attributes
 }: TypeWriterProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [visibleText, setVisibleText] = useState("");
+  const [visibleText, setVisibleText] = useState('');
   const [displayCursor, setDisplayCursor] = useState(cursor);
 
   useEffect(() => {
@@ -93,10 +93,9 @@ export const TypeWriter = ({
     <div
       {...attributes}
       className={
-        className
-          ? `tsx-cmpnt-typewriter-container ${className}`
-          : "tsx-cmpnt-typewriter-container"
-      }>
+        className ? `tsx-cmpnt-typewriter-container ${className}` : 'tsx-cmpnt-typewriter-container'
+      }
+    >
       <span className="tsx-cmpnt-typewriter-text">{visibleText}</span>
       {displayCursor && <span className="tsx-cmpnt-typewriter-cursor"></span>}
     </div>

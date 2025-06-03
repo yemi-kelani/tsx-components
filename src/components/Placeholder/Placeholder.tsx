@@ -1,9 +1,9 @@
-import "./Placeholder.scss";
-import { ReactNode, JSX } from "react";
-import { DynamicTag } from "../DynamicTag";
+import './Placeholder.scss';
+import { ReactNode, JSX } from 'react';
+import { DynamicTag } from '../DynamicTag';
 
 export type PlaceholderProps = {
-  size?: "small" | "medium" | "large" | undefined;
+  size?: 'small' | 'medium' | 'large' | undefined;
   style?: React.CSSProperties;
   animate?: boolean;
   as?: keyof JSX.IntrinsicElements;
@@ -27,29 +27,29 @@ export type PlaceholderProps = {
  * @returns A Placeholder component element.
  */
 export const Placeholder = ({
-  size = "medium",
+  size = 'medium',
   style,
   animate = true,
-  as = "span",
+  as = 'span',
   children,
-  className = "",
+  className = '',
   ...attributes
 }: PlaceholderProps) => {
   const styles = {
     small: {
-      width: "100%",
-      height: "300px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '300px',
+      maxHeight: '100%',
     },
     medium: {
-      width: "100%",
-      height: "450px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '450px',
+      maxHeight: '100%',
     },
     large: {
-      width: "100%",
-      height: "600px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '600px',
+      maxHeight: '100%',
     },
   };
 
@@ -58,11 +58,12 @@ export const Placeholder = ({
       {...attributes}
       as={as}
       style={size && !style ? styles[size] : (style ?? {})}
-      className={ 
-        animate 
-        ? `${className} tsx-cmpnt-placeholder tsx-cmpnt-placeholder-shimmer-animator`
-        : `${className} tsx-cmpnt-placeholder`
-      }>
+      className={
+        animate
+          ? `${className} tsx-cmpnt-placeholder tsx-cmpnt-placeholder-shimmer-animator`
+          : `${className} tsx-cmpnt-placeholder`
+      }
+    >
       {children}
     </DynamicTag>
   );

@@ -28,8 +28,6 @@ All class names should begin with the `tsx-cmpnt-` prefix followed by the name o
 
 #### Patching Vulnerabilities
 
-
-
 ### Formatting
 
 Format all files with `prettier`:
@@ -43,4 +41,3 @@ Check formatting on all files:
 ```shell
 npx prettier . --check
 ```
-

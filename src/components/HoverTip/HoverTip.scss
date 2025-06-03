@@ -24,21 +24,18 @@ span.tsx-cmpnt-hovertip-tip-text {
   white-space: nowrap;
 }
 
-div.tsx-cmpnt-hovertip:hover
-  span.tsx-cmpnt-hovertip-tip-text {
+div.tsx-cmpnt-hovertip:hover span.tsx-cmpnt-hovertip-tip-text {
   display: block;
 }
 
-div.tsx-cmpnt-hovertip-position-top
-  span.tsx-cmpnt-hovertip-tip-text {
+div.tsx-cmpnt-hovertip-position-top span.tsx-cmpnt-hovertip-tip-text {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(-5px);
 }
 
-div.tsx-cmpnt-hovertip-position-top
-  span.tsx-cmpnt-hovertip-tip-text::after {
-  content: "";
+div.tsx-cmpnt-hovertip-position-top span.tsx-cmpnt-hovertip-tip-text::after {
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
@@ -48,16 +45,14 @@ div.tsx-cmpnt-hovertip-position-top
   border-color: black transparent transparent transparent;
 }
 
-div.tsx-cmpnt-hovertip-position-bottom
-  span.tsx-cmpnt-hovertip-tip-text {
+div.tsx-cmpnt-hovertip-position-bottom span.tsx-cmpnt-hovertip-tip-text {
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(5px);
 }
 
-div.tsx-cmpnt-hovertip-position-bottom
-  span.tsx-cmpnt-hovertip-tip-text::after {
-  content: "";
+div.tsx-cmpnt-hovertip-position-bottom span.tsx-cmpnt-hovertip-tip-text::after {
+  content: '';
   position: absolute;
   bottom: 100%;
   left: 50%;
@@ -67,16 +62,14 @@ div.tsx-cmpnt-hovertip-position-bottom
   border-color: transparent transparent black transparent;
 }
 
-div.tsx-cmpnt-hovertip-position-left
-  span.tsx-cmpnt-hovertip-tip-text {
+div.tsx-cmpnt-hovertip-position-left span.tsx-cmpnt-hovertip-tip-text {
   right: 100%;
   top: 50%;
   transform: translateX(-5px) translateY(-50%);
 }
 
-div.tsx-cmpnt-hovertip-position-left
-  span.tsx-cmpnt-hovertip-tip-text::after {
-  content: "";
+div.tsx-cmpnt-hovertip-position-left span.tsx-cmpnt-hovertip-tip-text::after {
+  content: '';
   position: absolute;
   top: 50%;
   left: 100%;
@@ -86,16 +79,14 @@ div.tsx-cmpnt-hovertip-position-left
   border-color: transparent transparent transparent black;
 }
 
-div.tsx-cmpnt-hovertip-position-right
-  span.tsx-cmpnt-hovertip-tip-text {
+div.tsx-cmpnt-hovertip-position-right span.tsx-cmpnt-hovertip-tip-text {
   left: 100%;
   top: 50%;
   transform: translateX(5px) translateY(-50%);
 }
 
-div.tsx-cmpnt-hovertip-position-right
-  span.tsx-cmpnt-hovertip-tip-text::after {
-  content: "";
+div.tsx-cmpnt-hovertip-position-right span.tsx-cmpnt-hovertip-tip-text::after {
+  content: '';
   position: absolute;
   top: 50%;
   right: 100%;

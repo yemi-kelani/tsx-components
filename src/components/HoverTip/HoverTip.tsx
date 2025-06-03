@@ -1,9 +1,9 @@
-import "./HoverTip.scss";
-import { ReactNode } from "react";
+import './HoverTip.scss';
+import { ReactNode } from 'react';
 
 export type HoverTipProps = {
   tip: string;
-  tipPosition?: "top" | "left" | "right" | "bottom";
+  tipPosition?: 'top' | 'left' | 'right' | 'bottom';
   children: ReactNode;
   className?: string;
   [key: string]: unknown;
@@ -25,7 +25,7 @@ export type HoverTipProps = {
  */
 export const HoverTip = ({
   tip,
-  tipPosition = "top",
+  tipPosition = 'top',
   children,
   className,
   ...attributes
@@ -37,7 +37,8 @@ export const HoverTip = ({
         className
           ? `tsx-cmpnt-hovertip tsx-cmpnt-hovertip-position-${tipPosition} ${className}`
           : `tsx-cmpnt-hovertip tsx-cmpnt-hovertip-position-${tipPosition}`
-      }>
+      }
+    >
       <span className="tsx-cmpnt-hovertip-tip-text">{tip}</span>
       {children}
     </div>

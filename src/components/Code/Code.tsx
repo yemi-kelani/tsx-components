@@ -1,17 +1,17 @@
-import "./Code.scss";
-import { Gist } from "./Gist";
-import { BoomerangButton } from "../BoomerangButton/BoomerangButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClone } from "@fortawesome/free-regular-svg-icons";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import './Code.scss';
+import { Gist } from './Gist';
+import { BoomerangButton } from '../BoomerangButton/BoomerangButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClone } from '@fortawesome/free-regular-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 export type CodeProps = {
-  type: "basic" | "gist";
+  type: 'basic' | 'gist';
   text?: string;
   language?: string;
   gistID?: string;
   gistFile?: string;
-  theme?: "light" | "dark";
+  theme?: 'light' | 'dark';
   caption?: string;
   lineNumbers?: boolean;
   className?: string;
@@ -55,9 +55,9 @@ export const Code = ({
 }: CodeProps) => {
   const addLineNums = (text: string) => {
     if (text) {
-      let lines: string[] = text.split("\n");
+      let lines: string[] = text.split('\n');
       lines = lines.map((line, i) => `${i + 1}. ${line}`);
-      const updatedText: string = lines.join("\n");
+      const updatedText: string = lines.join('\n');
       return String.raw`${updatedText}`;
     }
     return text;
@@ -70,32 +70,27 @@ export const Code = ({
         className
           ? `tsx-cmpnt-code-container tsx-cmpnt-code-type-${type} ${className}`
           : `tsx-cmpnt-code-container tsx-cmpnt-code-type-${type}`
-      }>
-      {type !== "gist" && (
+      }
+    >
+      {type !== 'gist' && (
         <BoomerangButton
-          tip={["copy", "copied"]}
+          tip={['copy', 'copied']}
           tipPosition="top"
           content={[
-            <FontAwesomeIcon
-              className={`tsx-cmpnt-code-btn-icon-${theme ?? ""}`}
-              icon={faClone}
-            />,
-            <FontAwesomeIcon
-              className={`tsx-cmpnt-code-btn-icon-${theme ?? ""}`}
-              icon={faCheck}
-            />,
+            <FontAwesomeIcon className={`tsx-cmpnt-code-btn-icon-${theme ?? ''}`} icon={faClone} />,
+            <FontAwesomeIcon className={`tsx-cmpnt-code-btn-icon-${theme ?? ''}`} icon={faCheck} />,
           ]}
-          className={`tsx-cmpnt-code-btn-copy tsx-cmpnt-code-btn-theme-${theme ?? ""}`}
+          className={`tsx-cmpnt-code-btn-copy tsx-cmpnt-code-btn-theme-${theme ?? ''}`}
           handleClick={() => {
-            navigator.clipboard.writeText(text ?? "");
+            navigator.clipboard.writeText(text ?? '');
           }}
         />
       )}
-      {type === "gist" && gistID && <Gist id={gistID} file={gistFile} />}
-      {type === "basic" && (
-        <pre className={`preblock-${language ?? ""} tsx-cmpnt-code-pre-theme-${theme ?? ""}`}>
-          <code className={`text-${language ?? ""} tsx-cmpnt-code-code-theme-${theme ?? ""}`}>
-            {lineNumbers ? addLineNums(text ?? "") : String.raw`${text ?? ""}`}
+      {type === 'gist' && gistID && <Gist id={gistID} file={gistFile} />}
+      {type === 'basic' && (
+        <pre className={`preblock-${language ?? ''} tsx-cmpnt-code-pre-theme-${theme ?? ''}`}>
+          <code className={`text-${language ?? ''} tsx-cmpnt-code-code-theme-${theme ?? ''}`}>
+            {lineNumbers ? addLineNums(text ?? '') : String.raw`${text ?? ''}`}
           </code>
         </pre>
       )}
@@ -105,9 +100,7 @@ export const Code = ({
             <small>{language?.toLowerCase()}</small>
           </i>
         )}
-        {caption && (
-          <figcaption style={{ fontSize: "smaller" }}>{caption}</figcaption>
-        )}
+        {caption && <figcaption style={{ fontSize: 'smaller' }}>{caption}</figcaption>}
       </div>
     </figure>
   );

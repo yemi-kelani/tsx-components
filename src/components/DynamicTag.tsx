@@ -1,4 +1,4 @@
-import { JSX, ReactNode } from "react";
+import { JSX, ReactNode } from 'react';
 
 export type DynamicTagProps = {
   as?: keyof JSX.IntrinsicElements;
@@ -16,11 +16,7 @@ export type DynamicTagProps = {
  *
  * @returns An HTML tag.
  */
-export const DynamicTag = ({
-  as = "div",
-  children,
-  ...attributes
-}: DynamicTagProps) => {
+export const DynamicTag = ({ as = 'div', children, ...attributes }: DynamicTagProps) => {
   const Tag = as;
   return <Tag {...attributes}>{children}</Tag>;
 };

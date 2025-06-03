@@ -1,0 +1,37 @@
+.tsx-cmpnt-text-container {
+  width: 100%;
+  display: flex;
+  margin: 1em 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tsx-cmpnt-text-container div {
+  width: 100%;
+}
+
+.tsx-cmpnt-text-container hr {
+  width: 100%;
+  border: 1px solid black;
+  margin-bottom: 1rem;
+}
+
+.tsx-cmpnt-text-container p.tsx-cmpnt-text-indent {
+  text-indent: 50px;
+}
+
+.tsx-cmpnt-text-container p {
+  width: 100%;
+  padding: 0px 20px;
+  margin-bottom: 1rem;
+}
+
+.tsx-cmpnt-text-container p a {
+  color: coral;
+}
+
+.tsx-cmpnt-text-container p ol,
+.tsx-cmpnt-text-container p ul {
+  text-indent: 10px;
+}

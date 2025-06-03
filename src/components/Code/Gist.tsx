@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 export type GistProps = {
   id: string;
   file?: string;
-}
+};
 
 export const Gist = ({ id, file }: GistProps) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);

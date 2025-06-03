@@ -1,12 +1,28 @@
-import "./Placeholder.scss";
-import { JSX } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faImage } from "@fortawesome/free-regular-svg-icons";
-import { Placeholder } from "./Placeholder";
+import '../Placeholder.scss';
+import { JSX } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage } from '@fortawesome/free-regular-svg-icons';
+import { Placeholder } from '../Placeholder';
 
 export type ImagePlaceholderProps = {
-  size?: "small" | "medium" | "large" | undefined;
-  iconSize?: "2xs" | "xs" | "sm" | "lg" | "xl" | "2xl" | "1x" | "2x" | "3x" | "4x" | "5x" | "6x" | "7x" | "8x" | "9x" | "10x";
+  size?: 'small' | 'medium' | 'large' | undefined;
+  iconSize?:
+    | '2xs'
+    | 'xs'
+    | 'sm'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '1x'
+    | '2x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x';
   style?: React.CSSProperties;
   animate?: boolean;
   as?: keyof JSX.IntrinsicElements;
@@ -27,28 +43,28 @@ export type ImagePlaceholderProps = {
  * @returns A ImagePlaceholder component element.
  */
 export const ImagePlaceholder = ({
-  size = "medium",
-  iconSize = "1x",
+  size = 'medium',
+  iconSize = '1x',
   style,
   animate = true,
-  as = "span",
+  as = 'span',
   ...attributes
 }: ImagePlaceholderProps) => {
   const styles = {
     small: {
-      width: "100%",
-      height: "300px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '300px',
+      maxHeight: '100%',
     },
     medium: {
-      width: "100%",
-      height: "450px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '450px',
+      maxHeight: '100%',
     },
     large: {
-      width: "100%",
-      height: "600px",
-      maxHeight: "100%",
+      width: '100%',
+      height: '600px',
+      maxHeight: '100%',
     },
   };
 

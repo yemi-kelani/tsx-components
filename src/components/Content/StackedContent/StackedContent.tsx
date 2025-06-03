@@ -1,5 +1,5 @@
-import { ReactNode, JSX } from "react";
-import "./StackedContent.scss";
+import { ReactNode, JSX } from 'react';
+import './StackedContent.scss';
 
 export type StackedContentProps = {
   topContent: ReactNode;
@@ -26,15 +26,15 @@ export type StackedContentProps = {
 export const StackedContent = ({
   topContent,
   bottomContent,
-  className = "",
-  topClassName = "",
-  bottomClassName = "",
-  gap = "1rem"
+  className = '',
+  topClassName = '',
+  bottomClassName = '',
+  gap = '1rem',
 }: StackedContentProps): JSX.Element => {
   return (
     <div
       className={`tsx-cmpnt-stacked-content-container ${className}`}
-      style={{ display: "flex", flexDirection: "column", gap }}
+      style={{ display: 'flex', flexDirection: 'column', gap }}
     >
       <div className={`tsx-cmpnt-stacked-content-top ${topClassName}`}>{topContent}</div>
       <div className={`tsx-cmpnt-stacked-content-bottom ${bottomClassName}`}>{bottomContent}</div>

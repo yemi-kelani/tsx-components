@@ -1,11 +1,11 @@
-import "./Placeholder.scss";
-import { JSX, ReactNode } from "react";
-import { Spinner } from "./Spinner";
-import { Placeholder } from "./Placeholder";
+import '../Placeholder.scss';
+import { JSX, ReactNode } from 'react';
+import { Spinner } from '../Spinner/Spinner';
+import { Placeholder } from '../Placeholder';
 
 export type LoadingPlaceholderProps = {
   icon?: ReactNode;
-  size?: "small" | "medium" | "large" | undefined;
+  size?: 'small' | 'medium' | 'large' | undefined;
   style?: React.CSSProperties;
   animate?: boolean;
   as?: keyof JSX.IntrinsicElements;
@@ -26,25 +26,25 @@ export type LoadingPlaceholderProps = {
  * @returns A Code component element.
  */
 export const LoadingPlaceholder = ({
-  icon = <Spinner/>,
-  size = "medium",
+  icon = <Spinner />,
+  size = 'medium',
   style,
   animate = true,
-  as = "span",
+  as = 'span',
   ...attributes
 }: LoadingPlaceholderProps) => {
   const styles = {
     small: {
-      width: "100%",
-      height: "300px",
+      width: '100%',
+      height: '300px',
     },
     medium: {
-      width: "100%",
-      height: "450px",
+      width: '100%',
+      height: '450px',
     },
     large: {
-      width: "100%",
-      height: "600px",
+      width: '100%',
+      height: '600px',
     },
   };
 
@@ -53,7 +53,8 @@ export const LoadingPlaceholder = ({
       {...attributes}
       as={as}
       animate={animate}
-      style={size && !style ? styles[size] : (style ?? {})}>
+      style={size && !style ? styles[size] : (style ?? {})}
+    >
       {icon}
     </Placeholder>
   );

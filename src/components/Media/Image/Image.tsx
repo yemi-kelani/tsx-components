@@ -1,16 +1,15 @@
-import "./Image.scss";
+import './Image.scss';
 
-import React from "react";
+import React from 'react';
 
 export type ImageProps = {
-    src: string;
-    caption?: string;
-    className?: string;
-    style?: React.CSSProperties;
-    imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
-    [key: string]: unknown;
+  src: string;
+  caption?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
+  [key: string]: unknown;
 };
-
 
 /**
  * Renders a responsive image with an optional caption.
@@ -26,19 +25,22 @@ export type ImageProps = {
  * @returns An HTML <figure> element containing the image and optional caption.
  */
 export const Image = ({
-    src,
-    caption,
-    className = "",
-    style,
-    imgProps = {},
-    ...containerProps
+  src,
+  caption,
+  className = '',
+  style,
+  imgProps = {},
+  ...containerProps
 }: ImageProps) => {
-    return (
-        <figure className={`tsx-cmpnt-image-container ${className}`} style={style} {...containerProps}>
-            <img src={src} alt={caption || "Image"} id={`tsx-cmpnt-image-${encodeURIComponent(src)}`} {...imgProps} />
-            {caption && (
-                <figcaption style={{ fontSize: "smaller" }}>{caption}</figcaption>
-            )}
-        </figure>
-    );
+  return (
+    <figure className={`tsx-cmpnt-image-container ${className}`} style={style} {...containerProps}>
+      <img
+        src={src}
+        alt={caption || 'Image'}
+        id={`tsx-cmpnt-image-${encodeURIComponent(src)}`}
+        {...imgProps}
+      />
+      {caption && <figcaption style={{ fontSize: 'smaller' }}>{caption}</figcaption>}
+    </figure>
+  );
 };
