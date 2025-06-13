@@ -10,7 +10,7 @@ div.tsx-cmpnt-typewriter-container span:nth-of-type(1) {
 }
 
 span.tsx-cmpnt-typewriter-text {
-  font-display: inline-block;
+  display: inline;
 }
 
 span.tsx-cmpnt-typewriter-cursor {
