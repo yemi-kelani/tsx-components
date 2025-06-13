@@ -1,7 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import { BulletPoints, ComplexBulletPoint } from '../../BulletPoints/BulletPoints';
-import { DynamicTag } from '../../DynamicTag';
+import { DynamicTag } from '../../DynamicTag/DynamicTag';
 import './Text.css';
 
 type TextProps = {

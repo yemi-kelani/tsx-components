@@ -1,4 +1,4 @@
-import { DynamicTag } from '../DynamicTag';
+import { DynamicTag } from '../DynamicTag/DynamicTag';
 import parse from 'html-react-parser';
 
 export type OLType =

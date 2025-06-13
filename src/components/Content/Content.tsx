@@ -1,5 +1,5 @@
 import { JSX, ReactNode } from 'react';
-import { DynamicTag } from '../DynamicTag';
+import { DynamicTag } from '../DynamicTag/DynamicTag';
 
 export type ContentProps = {
   children: ReactNode;

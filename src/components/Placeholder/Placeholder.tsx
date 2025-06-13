@@ -1,6 +1,6 @@
 import './Placeholder.scss';
 import { ReactNode, JSX } from 'react';
-import { DynamicTag } from '../DynamicTag';
+import { DynamicTag } from '../DynamicTag/DynamicTag';
 
 export type PlaceholderProps = {
   size?: 'small' | 'medium' | 'large' | undefined;

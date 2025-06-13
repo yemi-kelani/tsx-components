@@ -1,5 +1,5 @@
 import './TypeWriter.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export type TypeWriterProps = {
   terms: string[];
@@ -7,6 +7,7 @@ export type TypeWriterProps = {
   delay?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
   loop?: boolean;
   cursor?: boolean;
+  color?: string;
   className?: string;
   [key: string]: unknown;
 };
@@ -35,50 +36,96 @@ export const TypeWriter = ({
   delay = 2,
   loop = true,
   cursor = true,
+  color,
   className,
   ...attributes
 }: TypeWriterProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [visibleText, setVisibleText] = useState('');
   const [displayCursor, setDisplayCursor] = useState(cursor);
+  const intervalRef = useRef<number | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+  const eraseIntervalRef = useRef<number | null>(null);
+
+  const cleanupTimers = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    if (eraseIntervalRef.current) {
+      clearInterval(eraseIntervalRef.current);
+      eraseIntervalRef.current = null;
+    }
+  }, []);
+
+  const nextTerm = useCallback(() => {
+    setActiveIndex((prevIndex) => {
+      if (prevIndex + 1 >= terms.length) {
+        return loop ? 0 : prevIndex;
+      }
+      return prevIndex + 1;
+    });
+  }, [terms.length, loop]);
 
   useEffect(() => {
+    cleanupTimers();
+    
     if (terms.length === 0) {
       return;
     }
+    
     if (activeIndex >= terms.length) {
-      setActiveIndex(0);
+      if (loop) {
+        setActiveIndex(0);
+      }
       return;
     }
-    if (terms[activeIndex].length === 0) {
-      setActiveIndex(activeIndex + 1);
+    
+    const activeTerm = terms[activeIndex];
+    if (activeTerm.length === 0) {
+      nextTerm();
       return;
     }
 
     let stringIndex = 0;
     const intervalLength = 1000 / speed;
-    const activeTerm = terms[activeIndex];
-    const writeInterval = setInterval(() => {
-      // write text
-      setVisibleText(activeTerm.slice(0, stringIndex + 1));
+    let isMounted = true; // Track if component is mounted
+    
+    intervalRef.current = window.setInterval(() => {
+      if (!isMounted) return; // Prevent state updates if unmounted
+      
       stringIndex++;
+      setVisibleText(activeTerm.slice(0, stringIndex));
 
       if (stringIndex >= activeTerm.length) {
-        clearInterval(writeInterval);
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
 
-        // text has been written, now pause
-        setTimeout(() => {
-          // now delete the text, if looping
+        timeoutRef.current = window.setTimeout(() => {
+          if (!isMounted) return; // Prevent state updates if unmounted
+          
           if (loop) {
-            const eraseInterval = setInterval(() => {
-              setVisibleText(activeTerm.slice(0, stringIndex + 1));
-              stringIndex--;
+            let eraseIndex = activeTerm.length;
+            eraseIntervalRef.current = window.setInterval(() => {
+              if (!isMounted) return; // Prevent state updates if unmounted
+              
+              eraseIndex--;
+              setVisibleText(activeTerm.slice(0, eraseIndex));
 
-              if (stringIndex === 0) {
-                clearInterval(eraseInterval);
-
-                // set activeIndex to index of next term
-                setActiveIndex(activeIndex + 1);
+              if (eraseIndex <= 0) {
+                if (eraseIntervalRef.current) {
+                  clearInterval(eraseIntervalRef.current);
+                  eraseIntervalRef.current = null;
+                }
+                if (isMounted) {
+                  nextTerm();
+                }
               }
             }, intervalLength);
           } else {
@@ -87,7 +134,12 @@ export const TypeWriter = ({
         }, delay * 1000);
       }
     }, intervalLength);
-  }, [activeIndex, delay, loop, speed, terms]);
+
+    return () => {
+      isMounted = false;
+      cleanupTimers();
+    };
+  }, [activeIndex, delay, loop, speed, terms, cleanupTimers, nextTerm]);
 
   return (
     <div
@@ -96,7 +148,7 @@ export const TypeWriter = ({
         className ? `tsx-cmpnt-typewriter-container ${className}` : 'tsx-cmpnt-typewriter-container'
       }
     >
-      <span className="tsx-cmpnt-typewriter-text">{visibleText}</span>
+      <span className="tsx-cmpnt-typewriter-text" style={{color}}>{visibleText}</span>
       {displayCursor && <span className="tsx-cmpnt-typewriter-cursor"></span>}
     </div>
   );

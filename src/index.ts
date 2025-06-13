@@ -6,7 +6,7 @@ export * from './components/Content/Content';
 export * from './components/Content/LeftRightContent/LeftRightContent';
 export * from './components/Content/StackedContent/StackedContent';
 export * from './components/Content/Text/Text';
-export * from './components/DynamicTag';
+export * from './components/DynamicTag/DynamicTag';
 export * from './components/HoverTip/HoverTip';
 export * from './components/Media/Image/Image';
 export * from './components/Media/Video/Video';
