@@ -1,15 +1,24 @@
 .tsx-cmpnt-bullet-points-container {
   width: 100%;
   display: flex;
-  float: left;
+  flex-direction: column; /* More explicit than float: left */
 }
 
 .tsx-cmpnt-bullet-points-container ol,
 .tsx-cmpnt-bullet-points-container ul {
-  line-height: 120%;
+  line-height: 1.2; /* More standard unitless value */
   list-style-position: inside;
+  margin: 0; /* Reset default margins */
+  padding-left: 1em; /* Consistent indentation */
 }
 
 .tsx-cmpnt-bullet-points-container ol {
-  counter-reset: item;
+  counter-reset: item; /* This is fine for custom numbering */
+}
+
+/* Add some spacing between nested lists */
+.tsx-cmpnt-bullet-points-container li > ul,
+.tsx-cmpnt-bullet-points-container li > ol {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }

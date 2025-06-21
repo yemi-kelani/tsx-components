@@ -1,37 +1,84 @@
+/* Main container */
 .tsx-cmpnt-text-container {
   width: 100%;
   display: flex;
   margin: 1em 0;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start; /* Changed from center for better layout */
+  align-items: stretch; /* Allow content to fill width */
 }
 
-.tsx-cmpnt-text-container div {
+/* Header section for titles */
+.tsx-cmpnt-text-header {
   width: 100%;
-}
-
-.tsx-cmpnt-text-container hr {
-  width: 100%;
-  border: 1px solid black;
   margin-bottom: 1rem;
 }
 
+.tsx-cmpnt-text-header h2,
+.tsx-cmpnt-text-header h3 {
+  margin: 0 0 0.5rem 0;
+  padding: 0 20px;
+  width: calc(100% - 40px); /* Account for padding */
+}
+
+/* Content section */
+.tsx-cmpnt-text-content {
+  width: 100%;
+}
+
+/* Individual content entries */
+.tsx-cmpnt-text-entry {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Horizontal rule styling */
+.tsx-cmpnt-text-container hr {
+  width: calc(100% - 40px); /* Match paragraph padding */
+  margin: 0 20px 1rem 20px;
+  border: none;
+  border-top: 1px solid black; /* More standard approach */
+}
+
+/* Paragraph styling */
+.tsx-cmpnt-text-container p {
+  width: calc(100% - 40px); /* More explicit width calculation */
+  padding: 0 20px;
+  margin: 0 0 1rem 0;
+  line-height: 1.5; /* Improved readability */
+}
+
+/* Text indentation */
 .tsx-cmpnt-text-container p.tsx-cmpnt-text-indent {
   text-indent: 50px;
 }
 
-.tsx-cmpnt-text-container p {
-  width: 100%;
-  padding: 0px 20px;
-  margin-bottom: 1rem;
-}
-
+/* Link styling within paragraphs */
 .tsx-cmpnt-text-container p a {
   color: coral;
+  text-decoration: underline;
 }
 
-.tsx-cmpnt-text-container p ol,
-.tsx-cmpnt-text-container p ul {
-  text-indent: 10px;
+.tsx-cmpnt-text-container p a:hover {
+  color: #ff6347; /* Slightly darker coral on hover */
+  text-decoration: none;
+}
+
+/* Nested list styling - remove problematic text-indent */
+.tsx-cmpnt-text-container ol,
+.tsx-cmpnt-text-container ul {
+  margin: 0.5rem 0;
+  padding-left: 2rem; /* Better indentation for lists */
+}
+
+/* Ensure nested bullet points component has proper spacing */
+.tsx-cmpnt-text-entry .tsx-cmpnt-bullet-points-container {
+  margin-top: 0.5rem;
+  padding: 0 20px; /* Align with paragraph padding */
+}
+
+/* Remove bottom margin from last elements */
+.tsx-cmpnt-text-content > *:last-child,
+.tsx-cmpnt-text-entry:last-child {
+  margin-bottom: 0;
 }

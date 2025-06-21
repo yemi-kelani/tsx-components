@@ -95,9 +95,9 @@ export const Text = ({
           </>
         )}
       </div>
-      <p className={indent ? 'tsx-cmpnt-text-indent' : ''} style={{ textAlign, ...style }}>
+      <div className={indent ? 'tsx-cmpnt-text-indent' : ''} style={{ textAlign, ...style }}>
         {content.map(renderEntry)}
-      </p>
+      </div>
     </DynamicTag>
   );
 };

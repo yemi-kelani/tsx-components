@@ -43,6 +43,20 @@ export type BulletPointsProps = {
 };
 
 /**
+ * Utility function to check if a string contains HTML
+ */
+const isHtmlString = (str: string): boolean => {
+  return /<[^>]*>/g.test(str);
+};
+
+/**
+ * Utility function to render text content (with or without HTML)
+ */
+const renderTextContent = (text: string) => {
+  return isHtmlString(text) ? parse(text) : text;
+};
+
+/**
  * Renders a BulletPoints list component.
  *
  * @param props - The properties for the component.
@@ -59,35 +73,41 @@ export const BulletPoints = ({
   bulletList,
   ...attributes
 }: BulletPointsProps) => {
-  const bulletpoints = bulletList.map((bulletpoint) => {
+  const bulletpoints = bulletList.map((bulletpoint, index) => {
+    // Handle complex bullet point objects
     if (typeof bulletpoint === 'object' && !Array.isArray(bulletpoint)) {
       return (
-        <li key={bulletpoint.toString()}>
-          {typeof bulletpoint.text === 'string' &&
-          bulletpoint.text[0] === '<' &&
-          bulletpoint.text[bulletpoint.text.length - 1] === '>'
-            ? parse(bulletpoint.text)
-            : bulletpoint.text}
-          <BulletPoints
-            listType={bulletpoint.listType}
-            listStyleType={bulletpoint.listStyleType}
-            bulletList={bulletpoint.subBulletList}
-          />
+        <li key={`complex-${index}-${bulletpoint.text.slice(0, 20)}`}>
+          {renderTextContent(bulletpoint.text)}
+          {bulletpoint.subBulletList.length > 0 && (
+            <BulletPoints
+              listType={bulletpoint.listType}
+              listStyleType={bulletpoint.listStyleType}
+              bulletList={bulletpoint.subBulletList}
+            />
+          )}
         </li>
       );
-    } else if (
-      typeof bulletpoint === 'string' &&
-      bulletpoint[0] === '<' &&
-      bulletpoint[bulletpoint.length - 1] === '>'
-    ) {
-      return <li key={bulletpoint.toString()}>{parse(bulletpoint)}</li>;
-    } else {
-      return <li key={bulletpoint.toString()}>{bulletpoint}</li>;
+    } 
+    // Handle simple string bullet points
+    else if (typeof bulletpoint === 'string') {
+      return (
+        <li key={`simple-${index}-${bulletpoint.slice(0, 20)}`}>
+          {renderTextContent(bulletpoint)}
+        </li>
+      );
     }
+    
+    // Fallback for unexpected types
+    return (
+      <li key={`fallback-${index}`}>
+        {String(bulletpoint)}
+      </li>
+    );
   });
 
   return (
-    <div className=".tsx-cmpnt-bullet-points-container">
+    <div className="tsx-cmpnt-bullet-points-container">
       <DynamicTag {...attributes} as={listType} style={{ listStyleType: listStyleType }}>
         {bulletpoints}
       </DynamicTag>
