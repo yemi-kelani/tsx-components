@@ -5,10 +5,6 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*.test.tsx",
-    "src/**/*.test.ts", 
-    "src/setupTests.ts"
-  ],
+  "include": ["src/**/*.test.tsx", "src/**/*.test.ts", "src/setupTests.ts"],
   "exclude": []
 }

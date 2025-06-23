@@ -73,18 +73,18 @@ export const TypeWriter = ({
 
   useEffect(() => {
     cleanupTimers();
-    
+
     if (terms.length === 0) {
       return;
     }
-    
+
     if (activeIndex >= terms.length) {
       if (loop) {
         setActiveIndex(0);
       }
       return;
     }
-    
+
     const activeTerm = terms[activeIndex];
     if (activeTerm.length === 0) {
       nextTerm();
@@ -94,10 +94,10 @@ export const TypeWriter = ({
     let stringIndex = 0;
     const intervalLength = 1000 / speed;
     let isMounted = true; // Track if component is mounted
-    
+
     intervalRef.current = window.setInterval(() => {
       if (!isMounted) return; // Prevent state updates if unmounted
-      
+
       stringIndex++;
       setVisibleText(activeTerm.slice(0, stringIndex));
 
@@ -109,12 +109,12 @@ export const TypeWriter = ({
 
         timeoutRef.current = window.setTimeout(() => {
           if (!isMounted) return; // Prevent state updates if unmounted
-          
+
           if (loop) {
             let eraseIndex = activeTerm.length;
             eraseIntervalRef.current = window.setInterval(() => {
               if (!isMounted) return; // Prevent state updates if unmounted
-              
+
               eraseIndex--;
               setVisibleText(activeTerm.slice(0, eraseIndex));
 
@@ -148,7 +148,9 @@ export const TypeWriter = ({
         className ? `tsx-cmpnt-typewriter-container ${className}` : 'tsx-cmpnt-typewriter-container'
       }
     >
-      <span className="tsx-cmpnt-typewriter-text" style={{color}}>{visibleText}</span>
+      <span className="tsx-cmpnt-typewriter-text" style={{ color }}>
+        {visibleText}
+      </span>
       {displayCursor && <span className="tsx-cmpnt-typewriter-cursor"></span>}
     </div>
   );

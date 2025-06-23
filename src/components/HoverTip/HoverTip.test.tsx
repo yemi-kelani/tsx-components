@@ -6,9 +6,9 @@ describe('HoverTip', () => {
     render(
       <HoverTip tip="Test tooltip">
         <button>Test Button</button>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     expect(screen.getByRole('button', { name: 'Test Button' })).toBeInTheDocument();
   });
 
@@ -16,9 +16,9 @@ describe('HoverTip', () => {
     render(
       <HoverTip tip="Test tooltip">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     expect(screen.getByText('Test tooltip')).toBeInTheDocument();
   });
 
@@ -26,9 +26,9 @@ describe('HoverTip', () => {
     const { container } = render(
       <HoverTip tip="Test tooltip">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     const hoverTipElement = container.firstChild as HTMLElement;
     expect(hoverTipElement).toHaveClass('tsx-cmpnt-hovertip-position-top');
   });
@@ -37,9 +37,9 @@ describe('HoverTip', () => {
     const { container } = render(
       <HoverTip tip="Test tooltip" tipPosition="bottom">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     const hoverTipElement = container.firstChild as HTMLElement;
     expect(hoverTipElement).toHaveClass('tsx-cmpnt-hovertip-position-bottom');
   });
@@ -48,9 +48,9 @@ describe('HoverTip', () => {
     const { container } = render(
       <HoverTip tip="Test tooltip" className="custom-class">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     const hoverTipElement = container.firstChild as HTMLElement;
     expect(hoverTipElement).toHaveClass('tsx-cmpnt-hovertip');
     expect(hoverTipElement).toHaveClass('tsx-cmpnt-hovertip-position-top');
@@ -61,9 +61,9 @@ describe('HoverTip', () => {
     const { container } = render(
       <HoverTip tip="Test tooltip" data-testid="hover-tip" aria-label="Hover tip">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     const hoverTipElement = container.firstChild as HTMLElement;
     expect(hoverTipElement).toHaveAttribute('data-testid', 'hover-tip');
     expect(hoverTipElement).toHaveAttribute('aria-label', 'Hover tip');
@@ -71,14 +71,14 @@ describe('HoverTip', () => {
 
   it('renders with all tip positions', () => {
     const positions = ['top', 'right', 'bottom', 'left'] as const;
-    
-    positions.forEach(position => {
+
+    positions.forEach((position) => {
       const { container } = render(
         <HoverTip tip="Test tooltip" tipPosition={position}>
           <span>Content</span>
-        </HoverTip>
+        </HoverTip>,
       );
-      
+
       const hoverTipElement = container.firstChild as HTMLElement;
       expect(hoverTipElement).toHaveClass(`tsx-cmpnt-hovertip-position-${position}`);
     });
@@ -88,9 +88,9 @@ describe('HoverTip', () => {
     render(
       <HoverTip tip="Test tooltip">
         <span>Content</span>
-      </HoverTip>
+      </HoverTip>,
     );
-    
+
     const tipElement = screen.getByText('Test tooltip');
     expect(tipElement).toHaveClass('tsx-cmpnt-hovertip-tip-text');
     expect(tipElement.tagName).toBe('SPAN');

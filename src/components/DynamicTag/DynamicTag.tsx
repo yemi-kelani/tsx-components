@@ -33,32 +33,28 @@ export interface DynamicTagProps {
  * <DynamicTag as="input" type="text" placeholder="Enter text" />
  * ```
  */
-export const DynamicTag = forwardRef<
-  HTMLElement,
-  DynamicTagProps
->(({ as: Component = 'div', children, ...attributes }, ref) => {
-  // Filter out React-specific props that shouldn't reach HTML elements
-  const filteredAttributes = Object.entries(attributes).reduce(
-    (acc, [key, value]) => {
+export const DynamicTag = forwardRef<HTMLElement, DynamicTagProps>(
+  ({ as: Component = 'div', children, ...attributes }, ref) => {
+    // Filter out React-specific props that shouldn't reach HTML elements
+    const filteredAttributes = Object.entries(attributes).reduce((acc, [key, value]) => {
       // Skip React-specific props
       if (key === 'key' || key === 'ref') {
         return acc;
       }
       acc[key] = value;
       return acc;
-    },
-    {} as any
-  );
+    }, {} as any);
 
-  // Cast Component to any to avoid the union type complexity
-  const TagComponent = Component as any;
+    // Cast Component to any to avoid the union type complexity
+    const TagComponent = Component as any;
 
-  return (
-    <TagComponent ref={ref} {...filteredAttributes}>
-      {children}
-    </TagComponent>
-  );
-});
+    return (
+      <TagComponent ref={ref} {...filteredAttributes}>
+        {children}
+      </TagComponent>
+    );
+  },
+);
 
 // Set display name for better debugging
 DynamicTag.displayName = 'DynamicTag';

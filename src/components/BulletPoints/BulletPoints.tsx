@@ -89,7 +89,7 @@ export const BulletPoints = ({
           )}
         </li>
       );
-    } 
+    }
     // Handle simple string bullet points
     else if (typeof bulletpoint === 'string') {
       return (
@@ -98,13 +98,9 @@ export const BulletPoints = ({
         </li>
       );
     }
-    
+
     // Fallback for unexpected types
-    return (
-      <li key={`fallback-${index}`}>
-        {String(bulletpoint)}
-      </li>
-    );
+    return <li key={`fallback-${index}`}>{String(bulletpoint)}</li>;
   });
 
   return (
