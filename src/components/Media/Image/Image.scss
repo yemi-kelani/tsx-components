@@ -20,9 +20,9 @@
 img[id^='tsx-cmpnt-image-'] {
   display: block;
   width: 100%;
-  height: auto;  // This is good - maintains aspect ratio
+  height: auto; // This is good - maintains aspect ratio
   max-width: 100%;
-  object-fit: contain;  // Changed from 'cover' to 'contain'
+  object-fit: contain; // Changed from 'cover' to 'contain'
   border-radius: common.$border-radius-px;
   // box-shadow: common.$box-shadow-soft;
 

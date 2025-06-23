@@ -4,7 +4,6 @@
   flex-direction: column; /* More explicit than float: left */
 }
 
-
 .tsx-cmpnt-bullet-points-container ul li,
 .tsx-cmpnt-bullet-points-container ol li {
   color: black;
