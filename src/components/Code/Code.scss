@@ -13,6 +13,7 @@ figure.tsx-cmpnt-code-container {
 .tsx-cmpnt-code-type-gist {
   height: 100%;
   min-width: 350px;
+  width: 100%;
 }
 
 .tsx-cmpnt-code-type-gist,
@@ -113,6 +114,12 @@ figure.tsx-cmpnt-code-container {
   text-align: left;
   margin-bottom: 1em;
   text-align: justify;
+}
+
+.tsx-cmpnt-code-caption-gist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tsx-cmpnt-code-container iframe {

@@ -94,7 +94,7 @@ export const Code = ({
           </code>
         </pre>
       )}
-      <div>
+      <div className={`tsx-cmpnt-code-caption-${type}`}>
         {language && (
           <i className="tsx-cmpnt-code-lang-label">
             <small>{language?.toLowerCase()}</small>

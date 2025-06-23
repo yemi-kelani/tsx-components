@@ -83,7 +83,7 @@ export const Text = ({
             <h2 id={sectionID} style={{ textAlign }}>
               {sectionTitle}
             </h2>
-            <hr aria-hidden="true" style={{ borderColor }} />
+            <hr aria-hidden="true" style={{ borderColor, width: '100%' }} />
           </>
         )}
         {!sectionTitle && sectionSubTitle && (

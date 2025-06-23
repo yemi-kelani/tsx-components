@@ -1,3 +1,4 @@
+import './BulletPoints.css';
 import { DynamicTag } from '../DynamicTag/DynamicTag';
 import parse from 'html-react-parser';
 

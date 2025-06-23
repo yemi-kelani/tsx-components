@@ -51,18 +51,18 @@ export const Gist = ({ id, file }: GistProps) => {
   }, [id, file]);
 
   return (
-    <iframe
-      ref={iframeRef}
-      id={file ? `gist-${id}-${file}` : `gist-${id}`}
-      title={`gist-${id}`}
-      width="100%"
-      style={{
-        width: '100%',
-        height: `${height}px`,
-        border: 'none',
-        overflow: 'hidden',
-      }}
-      scrolling="no"
-    />
+      <iframe
+        ref={iframeRef}
+        id={file ? `gist-${id}-${file}` : `gist-${id}`}
+        title={`gist-${id}`}
+        width="100%"
+        style={{
+          width: '100%',
+          height: `${height}px`,
+          border: 'none',
+          overflow: 'hidden',
+        }}
+        scrolling="no"
+      />
   );
 };

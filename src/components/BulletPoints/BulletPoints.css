@@ -4,12 +4,19 @@
   flex-direction: column; /* More explicit than float: left */
 }
 
+
+.tsx-cmpnt-bullet-points-container ul li,
+.tsx-cmpnt-bullet-points-container ol li {
+  color: black;
+  margin: 10px 0px;
+}
+
 .tsx-cmpnt-bullet-points-container ol,
 .tsx-cmpnt-bullet-points-container ul {
-  line-height: 1.2; /* More standard unitless value */
-  list-style-position: inside;
-  margin: 0; /* Reset default margins */
-  padding-left: 1em; /* Consistent indentation */
+  line-height: 1.2;
+  list-style-position: outside;
+  margin: 0;
+  padding-left: 1.5em; /* This controls the indentation */
 }
 
 .tsx-cmpnt-bullet-points-container ol {
@@ -21,4 +28,11 @@
 .tsx-cmpnt-bullet-points-container li > ol {
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+}
+
+/* Make the bullets/numbers bold */
+.tsx-cmpnt-bullet-points-container ul li::marker,
+.tsx-cmpnt-bullet-points-container ol li::marker {
+  font-weight: bold;
+  color: black;
 }

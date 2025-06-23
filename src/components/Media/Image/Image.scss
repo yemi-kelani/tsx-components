@@ -20,14 +20,14 @@
 img[id^='tsx-cmpnt-image-'] {
   display: block;
   width: 100%;
-  height: auto;
+  height: auto;  // This is good - maintains aspect ratio
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;  // Changed from 'cover' to 'contain'
   border-radius: common.$border-radius-px;
-  box-shadow: common.$box-shadow-soft;
+  // box-shadow: common.$box-shadow-soft;
 
-  // Optional: keep aspect ratio
-  aspect-ratio: 16 / 9;
+  // Remove the fixed aspect-ratio
+  // aspect-ratio: 16 / 9;  // This should be removed or made optional
 
   // fallback for older browsers
   @supports not (aspect-ratio: 16 / 9) {
