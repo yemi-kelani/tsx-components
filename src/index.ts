@@ -15,3 +15,4 @@ export * from './components/Placeholder/LoadingPlaceholder/LoadingPlaceholder';
 export * from './components/Placeholder/Placeholder';
 export * from './components/Placeholder/Spinner/Spinner';
 export * from './components/TypeWriter/TypeWriter';
+export * from './components/GitHubRepo/GitHubRepo';

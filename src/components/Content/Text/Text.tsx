@@ -42,7 +42,7 @@ export const Text = ({
   const renderEntry = (entry: string | ComplexBulletPoint, index: number) => {
     if (typeof entry === 'object' && !Array.isArray(entry)) {
       const { text, listType, listStyleType, subBulletList } = entry;
-      const isHTML = /^<.+>$/.test(text);
+      const isHTML = /<[^>]+>/.test(text);
       return (
         <React.Fragment key={index}>
           {isHTML ? parse(text) : text}
@@ -55,7 +55,7 @@ export const Text = ({
       );
     }
 
-    const isHTML = typeof entry === 'string' && /^<.+>$/.test(entry);
+    const isHTML = typeof entry === 'string' && /<[^>]+>/.test(entry);
     return <React.Fragment key={index}>{isHTML ? parse(entry) : entry}</React.Fragment>;
   };
 
